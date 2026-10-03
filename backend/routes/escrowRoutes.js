@@ -1,18 +1,24 @@
 const express = require('express');
 const router = express.Router();
 //const { authMiddleware } = require('../middleware/auth');
-const {depositEscrow,releaseEscrow,getFarmerEscrowDashboard,confirmDelivery,getBuyerPaymentDetails
-    ,getBuyerEscrows
-} = require('../controllers/escrowController');
+const {
+  depositEscrow,
+  createRazorpayOrder,
+  getBuyerEscrowDashboard,
+  getFarmerEscrowDashboard,
+  confirmDelivery,
+  getBuyerPaymentDetails,
+  getBuyerEscrows,
+  farmerRequestPayout,
+} = require("../controllers/escrowController");
 
-// router.post('/:id/deposit', authMiddleware, paymentController.depositEscrow);
-// router.get('/:id', authMiddleware, paymentController.getPaymentsForContract);
+router.post("/create-order", createRazorpayOrder);
 router.post("/deposit", depositEscrow);
-//router.get("/buyer/:buyerId", getBuyerEscrowDashboard);
-//router.post("/release/:escrowId",releaseEscrow);
 router.post("/confirm-delivery", confirmDelivery);
+router.get("/dashboard/:buyerId", getBuyerEscrowDashboard);
 router.get("/buyer/:buyerId", getBuyerPaymentDetails);
 router.get("/farmer/:farmerId", getFarmerEscrowDashboard);
 router.get("/buyer/v1/:buyerId", getBuyerEscrows);
+router.post("/farmer/payout", farmerRequestPayout);
 
 module.exports = router;

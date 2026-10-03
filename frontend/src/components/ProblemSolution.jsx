@@ -46,7 +46,7 @@ const ProblemSolution = () => {
           <div className="lg:w-1/2 bg-linear-to-br from-emerald-50 to-green-50 p-12 lg:p-24 relative overflow-hidden">
              <div className="absolute top-0 left-0 w-full h-2 bg-emerald-500"></div>
              <h3 className="text-3xl font-bold text-emerald-800 mb-12 flex items-center gap-3">
-              <Sprout className="text-emerald-600" /> The Agriassure Way
+              <Sprout className="text-emerald-600" /> The AgriAssure Way
             </h3>
 
             <div className="space-y-6">

@@ -10,7 +10,7 @@ const SuccessPopup = ({ message, onClose }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center 
-      bg-black/30 backdrop-blur-sm z-[200]">
+      bg-black/30 backdrop-blur-sm z-200">
 
       <div className="bg-white p-8 rounded-2xl shadow-xl flex flex-col items-center
         animate-[fadeIn_0.4s_ease]">

@@ -16,9 +16,13 @@ const transactionSchema = new mongoose.Schema({
 
   description: String,
 
+  payoutId: String,
+  payoutMode: String,
+  beneficiary: String,
+
   status: {
     type: String,
-    enum: ["Success", "Locked"]
+    default: "Success"
   },
 
   createdAt: {

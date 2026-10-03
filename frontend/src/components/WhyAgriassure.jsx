@@ -25,7 +25,7 @@ const WhyAgriassure = () => {
           <div className="text-center mb-20">
             <span className="text-emerald-600 font-bold tracking-widest uppercase text-sm mb-4 block">Trust Ecosystem</span>
             <h2 className="text-4xl md:text-6xl font-extrabold text-slate-800">
-              Why <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-600 to-teal-500">Agriassure?</span>
+              Why <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-600 to-teal-500">AgriAssure?</span>
             </h2>
             <p className="mt-4 text-slate-600 text-lg max-w-2xl mx-auto">Building the future of agriculture on pillars of transparency and security.</p>
           </div>

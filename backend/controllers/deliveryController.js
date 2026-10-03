@@ -50,14 +50,6 @@ exports.markInTransit = async (req, res) => {
   res.json(d);
 };
 
-// exports.deliveredToBuyer = async (req, res) => {
-//   const d = await Delivery.findById(req.body.deliveryId);
-//   d.deliveryStatus = "DELIVERED_TO_BUYER";
-//   d.deliveredAt = new Date();
-//   d.timeline.push({ status: "Delivered to Buyer" });
-//   await d.save();
-//   res.json(d);
-// };
 
 
 exports.deliveredToBuyer = async (req, res) => {
@@ -94,59 +86,6 @@ exports.deliveredToBuyer = async (req, res) => {
     res.status(500).json({ message: "Failed to mark delivery" });
   }
 };
-
-// exports.deliveredToBuyer = async (req, res) => {
-//   const session = await mongoose.startSession();
-
-//   try {
-//     session.startTransaction();
-
-//     const { deliveryId } = req.body;
-
-//     const delivery = await Delivery.findById(deliveryId).session(session);
-//     if (!delivery)
-//       throw new Error("Delivery not found");
-
-//     delivery.deliveryStatus = "DELIVERED_TO_BUYER";
-//     delivery.deliveredAt = new Date();
-//     delivery.timeline.push({ status: "Delivered to Buyer" });
-
-//     await delivery.save({ session });
-
-//     await session.commitTransaction();
-//     session.endSession();
-
-//     res.json({
-//       success: true,
-//       message: "Delivery marked as delivered to buyer"
-//     });
-
-//   } catch (err) {
-//     await session.abortTransaction();
-//     session.endSession();
-
-//     console.error("❌ Admin delivery confirm failed", err);
-//     res.status(500).json({
-//       success: false,
-//       message: "Admin delivery update failed"
-//     });
-//   }
-// };
-
-/* BUYER */
-
-// exports.buyerConfirm = async (req, res) => {
-//   const d = await Delivery.findById(req.body.deliveryId);
-
-//   d.deliveryStatus = "CONFIRMED_BY_BUYER";
-//   d.timeline.push({ status: "Buyer Confirmed" });
-
-//   d.deliveryStatus = "ESCROW_RELEASED";
-//   d.timeline.push({ status: "Escrow Released" });
-
-//   await d.save();
-//   res.json({ message: "Confirmed & payment released" });
-// };
 
 
 exports.buyerConfirm = async (req, res) => {

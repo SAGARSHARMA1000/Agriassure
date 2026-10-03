@@ -1,23 +1,4 @@
-// const Delivery = require("../models/Delivery");
 
-// exports.autoReleaseEscrow = async () => {
-//   const limit = new Date(Date.now() - 24 * 60 * 60 * 1000);
-
-//   const list = await Delivery.find({
-//     deliveryStatus: "DELIVERED_TO_BUYER",
-//     deliveredAt: { $lte: limit }
-//   });
-
-//   for (let d of list) {
-//     d.deliveryStatus = "AUTO_CONFIRMED";
-//     d.timeline.push({ status: "Auto Confirmed" });
-
-//     d.deliveryStatus = "ESCROW_RELEASED";
-//     d.timeline.push({ status: "Escrow Released" });
-
-//     await d.save();
-//   }
-// };
 const mongoose = require("mongoose");
 const Delivery = require("../models/Delivery");
 const Escrow = require("../models/Escrow");

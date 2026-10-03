@@ -4,65 +4,92 @@ const listingSchema = new mongoose.Schema(
   {
     commodity: {
       type: String,
-      required: true,
-      trim: true
+      required: [true, "Commodity name is required"],
+      trim: true,
+    },
+
+    cropCategory: {
+      type: String,
+      enum: ["Grains", "Pulses", "Oilseeds", "Vegetables", "Fruits", "Commercial", "Other"],
+      default: "Grains",
     },
 
     variety: {
       type: String,
-      trim: true
+      trim: true,
     },
 
     quantity: {
       type: String,
-      required: true 
+      required: [true, "Quantity is required"],
+    },
+
+    unit: {
+      type: String,
+      default: "quintal",
     },
 
     price: {
       type: Number,
-      required: true
+      required: [true, "Price per unit is required"],
     },
 
     quality: {
       type: String,
-      default: "Standard"
+      default: "Grade A",
     },
 
     farmAddress: {
       type: String,
-      required: true
+      required: [true, "Farm address/location is required"],
+      trim: true,
     },
 
-    // ✅ IMPORTANT: real farmer identity
-    // sellerId: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "User",
-    //   required: true
-    // },
+    // Farmer identity
+    farmerId: {
+      type: String,
+      required: [true, "Farmer ID is required"],
+    },
 
-    // ✅ For UI display only
-     farmerId: { type: String, required:true },
-     farmerName: {type: String, required:true},
+    farmerName: {
+      type: String,
+      required: [true, "Farmer Name is required"],
+    },
 
-    // 🔮 Optional future fields
+    // Price Negotiation
     negotiationAllowed: {
       type: Boolean,
-      default: false
+      default: false,
     },
     minPrice: { type: Number },
     maxPrice: { type: Number },
 
+    // Crop Image - STRICTLY REQUIRED
     image: {
-      type: String 
+      type: String,
+      required: [true, "Crop image is strictly required"],
+    },
+
+    // Extended Agricultural Metadata
+    harvestDate: {
+      type: String,
+    },
+    organicCertified: {
+      type: Boolean,
+      default: false,
+    },
+    description: {
+      type: String,
+      trim: true,
     },
 
     status: {
       type: String,
       enum: ["active", "booked", "closed"],
-      default: "active"
-    }
+      default: "active",
+    },
   },
-  { timestamps: true } 
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("Listing", listingSchema);

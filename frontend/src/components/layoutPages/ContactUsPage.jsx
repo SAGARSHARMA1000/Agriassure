@@ -75,7 +75,7 @@ export default function ContactUsPage() {
                         Corporate Office
                       </p>
                       <p className="text-slate-400 text-xs sm:text-sm">
-                        Agriassure Tech Park, Phase 2, Hinjewadi, Pune, Maharashtra 411057
+                        Agriassure, Bairagarh, Bhopal, Madhya Pradesh 462030
                       </p>
                     </div>
                   </div>
@@ -108,7 +108,7 @@ export default function ContactUsPage() {
                         Email Address
                       </p>
                       <p className="text-slate-400 text-xs sm:text-sm">
-                        hello@agriassure.com
+                        sagar09shrm@gmail.com
                       </p>
                       <p className="text-slate-400 text-xs sm:text-sm">
                         support@agriassure.com

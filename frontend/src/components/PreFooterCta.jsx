@@ -33,7 +33,7 @@ const PreFooterCTA = ({onOpenRegister}) => {
             Get Started
           </button>
           <button className="px-10 py-4 border-2 border-emerald-600 text-emerald-700 rounded-full font-bold text-lg hover:bg-emerald-50 transition">
-            Contact Sales
+            Contact us
           </button>
         </div>
 

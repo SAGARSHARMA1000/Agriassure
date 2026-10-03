@@ -181,7 +181,7 @@ module.exports = async function generatePdf(contract) {
     const uploadResult = await new Promise((resolve, reject) => {
       const uploadStream = cloudinary.uploader.upload_stream(
         {
-          folder: "agriassure-contracts",
+          folder: "agriassure/contracts",
           resource_type: "auto",
           public_id: `contract-${contract._id}`,
           format: "pdf",

@@ -66,7 +66,6 @@ export default function Hero({onOpenRegister}) {
         <div className="absolute inset-0 z-0">
           <img 
            src="https://res.cloudinary.com/dtbuqsryl/image/upload/v1774884987/agri-bg_yrpk8n.avif"
-           // src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2832&auto=format&fit=crop" 
             alt="Agriculture Field" 
             className="w-full h-full object-cover"
           />
@@ -77,15 +76,15 @@ export default function Hero({onOpenRegister}) {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white space-y-6 md:space-y-8 pt-16 md:pt-20">
           <div className="animate-fade-in-up">
             <span className="inline-block py-1 px-3 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs md:text-sm font-semibold tracking-wide mb-2 md:mb-3 backdrop-blur-sm">
-              🚀 Revolutionizing Contract Farming
+              🌾 Built for India's Farmers
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-4 md:mb-6">
               Cultivating Trust,<br />
-              <span className="text-emerald-400 bg-clip-text">Harvesting Stability.</span>
+              <span className="bg-emerald-400 bg-clip-text text-transparent">Harvesting Stability.</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto font-light leading-relaxed px-4">
               The bridge between hardworking farmers and reliable buyers. <br className="hidden md:block"/>
-              Secure contracts, transparent payments, and a future you can count on.
+              Secure contracts. Payments you can count on.
             </p>
           </div>
 
@@ -119,7 +118,7 @@ export default function Hero({onOpenRegister}) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 md:mb-16">
             <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">One Platform, Two Perspectives</h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-2">Agriassure adapts to your needs. Select your role to see how we empower you.</p>
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-2">AgriAssure adapts to your needs. Select your role to see how we empower you.</p>
           </div>
 
           {/* Toggle Switch */}

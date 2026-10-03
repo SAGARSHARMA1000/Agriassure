@@ -12,6 +12,7 @@
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
     "@fontsource/merriweather": "^5.2.11",
+    "@google/genai": "^2.23.0",
     "@tailwindcss/vite": "^4.1.17",
     "axios": "^1.13.2",
     "framer-motion": "^12.23.26",
@@ -19,6 +20,7 @@
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "react-router-dom": "^7.10.1",
+    "react-toastify": "^11.1.0",
     "tailwindcss": "^4.1.17"
   },
   "devDependencies": {

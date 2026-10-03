@@ -114,7 +114,7 @@ const TimelineStep = ({ step, title, description, details, icon, image, index, i
                 {details.map((detail, i) => (
                     <li key={i} className="flex items-start gap-2">
                         {/* Dot for bullet point */}
-                        <span className={`mt-1.5 w-1.5 h-1.5 shrink-0 rounded-full bg-green-500 ${isEven ? 'md:order-2 md:ml-2 md:mr-0' : ''}`}></span>
+                        <span className={`mt-1.5 w-1.5 h-1.5 shrink-0 rounded-full bg-emerald-700 ${isEven ? 'md:order-2 md:ml-2 md:mr-0' : ''}`}></span>
                         <span>{detail}</span>
                     </li>
                 ))}
@@ -322,7 +322,7 @@ export default function TimelineApp({onOpenRegister}) {
         <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 md:mb-12 leading-relaxed px-2">
             From registration to secure payment release, we ensure every step of your agricultural trade is transparent, efficient, and secure.
         </p>
-        <button onClick={onOpenRegister} className="bg-green-600 text-white px-6 md:px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-green-700 transition-colors transform hover:-translate-y-1">
+        <button onClick={onOpenRegister} className="bg-emerald-500 text-white px-6 md:px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-green-700 transition-colors transform hover:-translate-y-1">
             Start Trading Today
         </button>
       </header>

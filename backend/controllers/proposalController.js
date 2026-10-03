@@ -62,77 +62,17 @@ exports.createProposal = async (req, res) => {
 };
 
 
-// exports.getFarmerProposals = async (req, res) => {
-//   try {
-//     // const { farmerName, buyerId } = req.query;
-//      const { farmerName } = req.query;
-
-
-//     let filter = {};
-//     if (farmerName) filter.farmerName = farmerName;
-//     if (buyerId) filter.buyerId = buyerId;
-
-//     const proposals = await Proposal.find(filter).sort({ createdAt: -1 });
-
-//     res.json({ proposals });
-//   } catch (err) {
-//     console.error("❌ Fetch proposals error:", err);
-//     res.status(500).json({ message: "Failed to fetch proposals" });
-//   }
-// };
-// exports.getFarmerProposals = async (req, res) => {
-//   try {
-//     const { farmerName } = req.query;
-//     //const farmerName = req.query.farmerName?.trim();
-//       console.log(farmerName);
-
-//     if (!farmerName) {
-//       return res.status(400).json({ message: "farmerName is required" });
-//     }
-
-//     const proposals = await Proposal.find({ sellerName: farmerName.trim() })
-//       .sort({ createdAt: -1 });
-
-//     res.json({ proposals });
-//   } catch (err) {
-//     console.error("❌ Fetch proposals error:", err);
-//     res.status(500).json({ message: "Failed to fetch proposals" });
-//   }
-// };
-
-// exports.getFarmerProposals = async (req, res) => {
-//   try {
-//     console.log("🔥 Incoming query:", req.query); // <-- LOG 1
-
-//     const farmerName = req.query.farmerName?.trim();
-//     console.log("👨‍🌾 Parsed farmerName:", farmerName); // <-- LOG 2
-
-//     const proposals = await Proposal.find({
-//       sellerName: farmerName
-//     });
-
-//     console.log("📦 Proposals found:", proposals); // <-- LOG 3
-
-//     res.json(proposals);
-//   } catch (err) {
-//     console.error("❌ Error fetching proposals:", err);
-//     res.status(500).json({ message: "Failed to fetch proposals" });
-//   }
-// };
-
 exports.getFarmerProposals = async (req, res) => {
   try {
     const rawName = req.query.farmerName;
-    console.log("🔥 Raw farmerName:", JSON.stringify(rawName));
 
     const farmerName = rawName?.trim(); // ✅ FIX
-    console.log("✅ Trimmed farmerName:", JSON.stringify(farmerName));
 
     const proposals = await Proposal.find({
       sellerName: farmerName
     });
 
-    console.log("📦 Found proposals:", proposals.length);
+ //   console.log("📦 Found proposals:", proposals.length);
 
     res.json(proposals);
   } catch (err) {
@@ -142,23 +82,10 @@ exports.getFarmerProposals = async (req, res) => {
 };
 
 
-
-// exports.updateProposalStatus = async (req, res) => {
-//   const { id } = req.params;
-//   const { status } = req.body;
-
-//   const proposal = await Proposal.findByIdAndUpdate(
-//     id,
-//     { status },
-//     { new: true }
-//   );
-
-//   res.json(proposal);
-// };
 exports.updateProposalStatus = async (req, res) => {
-  console.log("🔥 PATCH HIT");
-  console.log("ID:", req.params.id);
-  console.log("BODY:", req.body);
+  //console.log("🔥 PATCH HIT");
+  //console.log("ID:", req.params.id);
+  //console.log("BODY:", req.body);
   try {
     const { status } = req.body;
 
@@ -190,39 +117,12 @@ exports.getAllProposals = async (req, res) => {
   }
 };
 
-// exports.createContractFromProposal = async (req, res) => {
-//   const { proposalId } = req.params;
-
-//   const proposal = await Proposal.findById(proposalId);
-//   if (!proposal) return res.status(404).json({ message: "Proposal not found" });
-
-//   proposal.status = "accepted";
-//   await proposal.save();
-
-//   const contract = await contract.create({
-//     proposalId: proposal._id,
-//     buyerId: proposal.buyerId,
-//    // farmerId: proposal.farmerId,
-//     contractData: {
-//       commodity: proposal.commodity,
-//       quantity: proposal.quantity,
-//       price: proposal.offerPrice,
-//       pickupDate: proposal.pickupDate,
-//       location: proposal.location
-//     }
-//   });
-
-//   res.json(contract);
-// };
-
-// controllers/proposalController.js
-
 
 exports.createContractFromProposal = async (req, res) => {
   try {
     const { proposalId } = req.params;
 
-    console.log("📌 Creating contract for proposal:", proposalId);
+   // console.log("📌 Creating contract for proposal:", proposalId);
 
     const proposal = await Proposal.findById(proposalId);
     if (!proposal) {

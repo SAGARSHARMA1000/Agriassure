@@ -7,11 +7,11 @@ const Features = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
-            Why Choose Agriassure?
+            Everything You Need, In One Place
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            We provide an end-to-end ecosystem for agricultural trade, ensuring
-            transparency, fair pricing, and secure payments.
+           From secure payments to fair pricing to hassle-free delivery —
+  Agriassure covers the entire trade, end to end.
           </p>
         </div>
 

@@ -1,32 +1,32 @@
 const Proposal = require('../models/Proposal');
 const Contract = require('../models/Contract');
 const Listing = require('../models/Listing');
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
 const generatePdf = require("../utils/generateContractPdf");
 
 exports.getContractByProposal = async (req, res) => {
-  const contract = await Contract.findOne({
-    proposalId: req.params.proposalId
-  });
+  try {
+    const contract = await Contract.findOne({
+      proposalId: req.params.proposalId
+    });
 
-  if (!contract) {
-    return res.status(404).json({ message: "Contract not found" });
+    if (!contract) {
+      return res.status(404).json({ message: "Contract not found" });
+    }
+
+    res.json(contract);
+  } catch (err) {
+    console.error("❌ Error fetching contract by proposal:", err);
+    res.status(500).json({ message: "Server error" });
   }
-
-  res.json(contract);
 };
 
 
 exports.buyerSignContract = async (req, res) => {
   try {
-   // console.log("BODY:", req.body);
-   // console.log("FILE:", req.file); // 👈 DEBUG
-
     if (!req.file || !req.body.name) {
       return res.status(400).json({
-        message: "Signature file not received",
+        success: false,
+        message: "Signature file and buyer name are required",
       });
     }
 
@@ -35,29 +35,43 @@ exports.buyerSignContract = async (req, res) => {
 
     const contract = await Contract.findById(contractId);
     if (!contract) {
-      return res.status(404).json({ message: "Contract not found" });
+      return res.status(404).json({ success: false, message: "Contract not found" });
     }
-   // Prevent re-signing
+
+    // Prevent re-signing
     if (contract.signatures?.buyerSignatureUrl) {
       return res.status(400).json({
+        success: false,
         message: "Buyer already signed",
       });
     }
-  
-        // ✅ SAVE EXACTLY AS PER SCHEMA
-    contract.signatures.buyerName = name;
-    contract.signatures.buyerSignatureUrl = req.file.path;
+
+    if (!contract.signatures) {
+      contract.signatures = {};
+    }
+
+    // Cloudinary file URL
+    const signatureUrl = (req.file.path || req.file.secure_url || "").replace(/\\/g, "/");
+
+    // Save signature details
+    contract.signatures.buyerName = name.trim();
+    contract.signatures.buyerSignatureUrl = signatureUrl;
 
     contract.status = "sent_to_farmer";
 
     await contract.save();
 
-    res.json({ message: "Buyer signed successfully", contract });
+    res.json({
+      success: true,
+      message: "Buyer signed successfully",
+      contract
+    });
   } catch (err) {
     console.error("Buyer sign error:", err);
-    res.status(500).json({ message: "Buyer sign failed" });
+    res.status(500).json({ success: false, message: "Buyer sign failed" });
   }
 };
+
 
 
 exports.getFarmerContracts = async (req, res) => {
@@ -82,40 +96,25 @@ exports.getFarmerContracts = async (req, res) => {
 
 exports.farmerSignContract = async (req, res) => {
   try {
-   //  console.log("🧾 Params:", req.params);
-   //  console.log("🧾 Body:", req.body);
-    // console.log("🧾 File:", req.file);
     const { contractId } = req.params;
     const name = req.body?.name;
-    //const { name } = req.body;
+
     if (!req.file || !name) {
-    return res.status(400).json({
-      message: "Signature image and farmer name are required"
-    });
-  }
+      return res.status(400).json({
+        success: false,
+        message: "Signature image and farmer name are required"
+      });
+    }
 
     const contract = await Contract.findById(contractId);
     if (!contract) {
-      return res.status(404).json({ message: "Contract not found" });
+      return res.status(404).json({ success: false, message: "Contract not found" });
     }
 
-    // Safety: buyer must sign first
-    // if (!contract.signatures.buyer?.signed) {
-    //   return res.status(400).json({
-    //     message: "Buyer signature missing"
-    //   });
-    // }
-
-    // contract.signatures.farmer = {
-    //   name:name,
-    //   image: req.file.path,
-    //   signed: true,
-    //   signedAt: new Date()
-    // };
-
-     // Ensure buyer signed first
+    // Ensure buyer signed first
     if (!contract.signatures?.buyerSignatureUrl) {
       return res.status(400).json({
+        success: false,
         message: "Buyer must sign first",
       });
     }
@@ -123,14 +122,23 @@ exports.farmerSignContract = async (req, res) => {
     // Prevent re-signing
     if (contract.signatures?.farmerSignatureUrl) {
       return res.status(400).json({
+        success: false,
         message: "Farmer already signed",
       });
     }
-    contract.signatures.farmerName = name;
-    contract.signatures.farmerSignatureUrl = req.file.path.replace(/\\/g, "/");
 
+    if (!contract.signatures) {
+      contract.signatures = {};
+    }
+
+    // Cloudinary file URL
+    const signatureUrl = (req.file.path || req.file.secure_url || "").replace(/\\/g, "/");
+
+    contract.signatures.farmerName = name.trim();
+    contract.signatures.farmerSignatureUrl = signatureUrl;
     contract.status = "active";
-     // 🔥 Generate PDF
+
+    // 🔥 Generate PDF
     const pdfPath = await generatePdf(contract);
     contract.pdf = {
       url: pdfPath,
@@ -139,16 +147,15 @@ exports.farmerSignContract = async (req, res) => {
 
     await contract.save();
 
-    //console.log("🌱 Farmer signed contract:", contract._id);
-
     res.json({
       success: true,
+      message: "Farmer signed successfully",
       contract
     });
 
   } catch (err) {
     console.error("Farmer sign error:", err);
-    res.status(500).json({ message: "Failed to sign contract" });
+    res.status(500).json({ success: false, message: "Failed to sign contract" });
   }
 };
 exports.getContractById = async (req, res) => {
