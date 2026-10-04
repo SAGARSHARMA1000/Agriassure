@@ -11,53 +11,53 @@
 > Replace the empty URLs below with your actual screenshot URLs.
 
 ### 🏠 Landing Page
-(screenshots/landingpage.png)
+![AgriAssure Landing Page](screenshots/landingpage.png)
 
 
 
 ---
 
 ### 🛒 Marketplace
-(screenshots/marketplace.png)
+![AgriAssure Landing Page](screenshots/marketplace.png)
 
 
 ---
 
 ### 👨‍🌾 Farmer Dashboard
-(screenshots/farmerDashboard.png)
+![Farmer Dashboard](screenshots/farmerDashboard.png)
 
 
 ---
 
 ### 🏢 Buyer Dashboard
-(screenshots/buyerDashboard.png)
+![Buyer dashboard](screenshots/buyerDashboard.png)
 
 
 
 ---
 
 ### 📄 Contract Management
-(screenshots/contract.png)
+![Contract Management](screenshots/contract.png)
 
 
 
 ---
 
 ### 💰 Escrow Payment
-(screenshots/escrow.png)
+![AgriAssure Escrow Payment](screenshots/escrow.png)
 
 
 ---
 
 ### 📊 Payment Dashboard
-(screenshots/paymentDashboard.png)
+![AgriAssure Payment Dashboard](screenshots/paymentDashboard.png)
 
 
 
 ---
 
 ### 🤖 AI Chatbot
-(screenshots/chatbot.png)
+![AgriAssure Chat Bot](screenshots/chatbot.png)
 
 
 
