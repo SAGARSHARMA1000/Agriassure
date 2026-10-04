@@ -11,54 +11,53 @@
 > Replace the empty URLs below with your actual screenshot URLs.
 
 ### 🏠 Landing Page
-![AgriAssure Landing Page](screenshots/agriassure.png)
+(screenshots/landingpage.png)
 
 
 
 ---
 
 ### 🛒 Marketplace
-
+(screenshots/marketplace.png)
 
 
 ---
 
 ### 👨‍🌾 Farmer Dashboard
-
+(screenshots/farmerDashboard.png)
 
 
 ---
 
 ### 🏢 Buyer Dashboard
+(screenshots/buyerDashboard.png)
 
 
 
 ---
 
 ### 📄 Contract Management
+(screenshots/contract.png)
 
 
 
 ---
 
 ### 💰 Escrow Payment
+(screenshots/escrow.png)
 
 
 ---
 
 ### 📊 Payment Dashboard
-
-
-
----
-
-### 📈 Mandi Rates
+(screenshots/paymentDashboard.png)
 
 
 
 ---
 
 ### 🤖 AI Chatbot
+(screenshots/chatbot.png)
 
 
 
@@ -1046,10 +1045,10 @@ LangChain.js
 
 ### Connect
 
-- 💼 LinkedIn: `YOUR_LINKEDIN_URL`
+- 💼 LinkedIn: `https://www.linkedin.com/in/sagar-sharma-751943336`
 - 🐙 GitHub: `https://github.com/SAGARSHARMA1000/`
-- 🌐 Portfolio: `YOUR_PORTFOLIO_URL`
-- 📧 Email: `YOUR_EMAIL`
+- 🌐 Portfolio: `https://sagar-sharma-portfolio-six.vercel.app`
+- 📧 Email: `sagar09shrm@gmail.com`
 
 ---
 
