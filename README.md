@@ -8,7 +8,6 @@
 
 ## 📸 Screenshots
 
-> Replace the empty URLs below with your actual screenshot URLs.
 
 ### 🏠 Landing Page
 ![AgriAssure Landing Page](screenshots/landingpage.png)
