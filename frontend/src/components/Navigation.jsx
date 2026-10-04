@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { User, LogOut, Menu, X, ChevronDown, Compass } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import LogoutModal from "./modals/LogoutModal";
+import LogoutModal from "./modals/LogOutModal";
 
 const Navigation = ({
   mobileMenuOpen,
