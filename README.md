@@ -43,7 +43,6 @@
 
 ### 💰 Escrow Payment
 
-jj
 
 ---
 
@@ -67,11 +66,11 @@ jj
 
 ## 🔗 Project Links
 
-| Resource             | Link                         |
-| -------------------- | ---------------------------- |
-| 🌐 Live Demo         | `YOUR_LIVE_DEMO_URL`         |
-| 💻 GitHub Repository | `YOUR_GITHUB_REPOSITORY_URL` |
-| 🎥 Demo Video        | `YOUR_DEMO_VIDEO_URL`        |
+| Resource             | Link                                 |
+| -------------------- | ------------------------------------ |
+| 🌐 Live Demo         | `https://agriassure-beta.vercel.app`|
+| 💻 GitHub Repository | `https://github.com/SAGARSHARMA1000/Agriassure` |
+| 🎥 Demo Video        | ``|
 
 ---
 
